@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAV Hehal | Environment & Health Initiative</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        :root {
+            --primary-green: #1b4332;
+            --mid-green: #40916c;
+            --light-bg: #f0f7f4;
+            --accent-gold: #ffb703;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-green);
+            color: white;
+            padding: 1.5rem 5%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            color: white;
+        }
+
+        /* Principal Section */
+        .principal-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 50px 10%;
+            background: white;
+            margin: 20px auto;
+            max-width: 1000px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .principal-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .principal-img img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid var(--mid-green);
+        }
+
+        .principal-message {
+            flex: 2;
+            padding: 20px;
+            min-width: 300px;
+        }
+
+        .principal-message h2 {
+            color: var(--primary-green);
+            border-bottom: 3px solid var(--accent-gold);
+            display: inline-block;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--mid-green);
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+
+        /* Certificate Section */
+        .interactive-container {
+            max-width: 800px;
+            margin: 60px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 80%;
+            border: 2px solid var(--mid-green);
+            border-radius: 8px;
+        }
+
+        .btn {
+            background: var(--mid-green);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* Certificate Design */
+        #certificate-template {
+            display: none;
+            margin: 30px auto;
+            width: 600px;
+            padding: 20px;
+            background: #fff;
+            border: 15px solid var(--primary-green);
+            background-image: radial-gradient(circle, #f0f7f4 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .cert-inner {
+            border: 2px solid var(--mid-green);
+            padding: 20px;
+        }
+
+        .user-photo-frame {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--mid-green);
+            margin: 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .user-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DAV PUBLIC SCHOOL, HEHAL</div>
+    </header>
+
+    <section class="hero">
+        <h1>Environment & Health Initiative</h1>
+        <p>Planting Seeds of Change for a Healthier Future</p>
+    </section>
+
+    <section class="principal-section">
+        <div class="principal-img">
+            <img src=""WZX_WhatsApp Image 2025-04-30 at 12.51.21 PM"" alt="Principal of DAV Hehal">
+            <p><strong>The Principal</strong><br>DAV Public School, Hehal</p>
+        </div>
+        <div class="principal-message">
+            <h2>Principal's Message</h2>
+            <div class="quote">
+                "He who plants a tree, plants a hope. At DAV Hehal, we believe that education is not just about books, but about learning to live in harmony with Mother Earth."
+            </div>
+            <p>
+                Dear Students and Parents, our <b>Environment & Health Initiative</b> aims to foster a deep connection between our students and nature. By planting a tree today, you are ensuring breathable air and a cooler planet for tomorrow. I encourage every student to take this pledge: <i>One Student, One Tree.</i> Let us nurture these saplings as we nurture our own dreams.
+            </p>
+            <p>Stay Green, Stay Healthy!</p>
+        </div>
+    </section>
+
+    <div class="interactive-container">
+        <h2>Become a Certified Green Warrior</h2>
+        <p>Join the movement! Upload your photo with a plant and get your certificate.</p>
+        
+        <div class="input-group">
+            <input type="text" id="studentName" placeholder="Enter Your Full Name">
+            <input type="file" id="imageInput" accept="image/*">
+            <button class="btn" onclick="generateCertificate()">Generate Certificate</button>
+        </div>
+
+        <div id="certificate-template">
+            <div class="cert-inner">
+                <p style="letter-spacing: 2px; color: var(--mid-green);">DAV HEHAL ENVIRONMENT CLUB</p>
+                <h1 style="color: var(--primary-green); margin: 10px 0;">CERTIFICATE</h1>
+                <p>OF APPRECIATION</p>
+                <hr style="width: 50%; border: 1px solid var(--accent-gold);">
+                <p>This is to certify that</p>
+                <h2 id="cert-name" style="color: #d90429; font-style: italic;">[Name]</h2>
+                <p>has successfully participated in the <b>Green Hehal Initiative</b><br>and contributed to a healthier ecosystem.</p>
+                
+                <div class="user-photo-frame">
+                    <img id="cert-img" src="" alt="Student Activity">
+                </div>
+
+                <div style="display: flex; justify-content: space-between; margin-top: 30px; font-weight: bold; font-size: 0.8rem;">
+                    <div>Date: Feb 2026</div>
+                    <div style="text-align: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3405/3405252.png" width="50" style="opacity: 0.5;"><br>
+                        Principal Signature
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn" id="downloadBtn" style="display:none; margin-top:20px; background: #e67e22;" onclick="downloadImage()">Download Certificate</button>
+    </div>
+
+    <script>
+        function generateCertificate() {
+            const name = document.getElementById('studentName').value;
+            const file = document.getElementById('imageInput').files[0];
+
+            if (!name || !file) {
+                alert("Please provide both your name and a photo.");
+                return;
+            }
+
+            document.getElementById('cert-name').innerText = name;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('cert-img').src = e.target.result;
+                document.getElementById('certificate-template').style.display = 'block';
+                document.getElementById('downloadBtn').style.display = 'inline-block';
+                document.getElementById('certificate-template').scrollIntoView({ behavior: 'smooth' });
+            }
+            reader.readAsDataURL(file);
+        }
+
+        function downloadImage() {
+            const cert = document.getElementById('certificate-template');
+            html2canvas(cert).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'DAV_Green_Warrior.png';
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
